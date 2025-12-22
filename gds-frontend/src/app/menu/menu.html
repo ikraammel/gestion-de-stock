@@ -1,0 +1,38 @@
+<div class="accordion accordion-flush shadow-sm" id="accordionMenu">
+  <div class="card border-0" *ngFor="let menu of MenuProperties">
+    <div class="card-header bg-white border-bottom-0" [id]="'heading' + menu.id">
+      <h5 class="mb-0">
+        <button class="btn btn-link w-100 text-start d-flex align-items-center justify-content-between text-decoration-none py-3" 
+          type="button"
+          data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#collapse' + menu.id"
+          [attr.aria-expanded]="false"
+          [attr.aria-controls]="'collapse' + menu.id">
+          <span>
+            <i class="{{menu.icon}} me-2 text-primary"></i>
+            <span class="menu-title fw-bold text-dark">{{menu.titre}}</span>
+          </span>
+          <i class="fa-solid fa-chevron-down small text-muted"></i>
+        </button>
+      </h5>
+    </div>
+
+    <div [id]="'collapse' + menu.id"
+         class="collapse"
+         [attr.aria-labelledby]="'heading' + menu.id"
+         data-bs-parent="#accordionMenu">
+        <div class="card-body p-0 bg-light">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-transparent border-0 py-0" *ngFor="let submenu of menu.sousMenu">
+                    <a class="menu-link d-flex align-items-center py-3 ps-4 text-decoration-none text-secondary" 
+                       (click)="navigate(submenu.url)" 
+                       style="cursor: pointer;"> 
+                       <i class="{{submenu.icon}} me-2"></i>
+                       <span>{{submenu.titre}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>

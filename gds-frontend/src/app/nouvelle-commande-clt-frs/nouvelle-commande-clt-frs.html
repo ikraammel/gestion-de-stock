@@ -1,0 +1,111 @@
+<div class="container-fluid py-3 px-2 px-md-4">
+    <div class="card shadow-sm border-0 mb-3">
+        <div class="card-body">
+            <h4 class="h5 mb-3 text-primary"><i class="fa-solid fa-cart-plus me-2"></i>Nouvelle commande {{origin}}</h4>
+            <div class="row g-3">
+                <div class="col-12 col-md-5 border-md-end pe-md-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Code commande</label>
+                            <input type="text" class="form-control" name="codeCmd" placeholder="Ex: CMD-2025-001" [(ngModel)]="codeCommande">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Date commande</label>
+                            <input type="text" class="form-control" name="dateCmd" placeholder="12/12/2025">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Sélectionner {{origin}}</label>
+                            <select class="form-select" name="clientFournisseur" [(ngModel)]="clientFournisseur">
+                                <option [ngValue]="{}">Choisir...</option>
+                                <option *ngFor="let obj of listCltFrs" [ngValue]="obj">
+                                    {{obj.nom}} {{obj.prenom}}
+                                </option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-12 col-md-5 border-md-end pe-md-4" *ngIf="clientFournisseur.nom">
+                    <div class="p-2 bg-light rounded">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fa-solid fa-user me-2 text-secondary"></i>
+                            <span class="fw-bold">{{clientFournisseur.nom}} {{clientFournisseur.prenom}}</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fa-solid fa-phone me-2 text-secondary"></i>
+                            <span>{{clientFournisseur.numTel}}</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-envelope me-2 text-secondary"></i>
+                            <span class="small">{{clientFournisseur.email}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-2 d-flex justify-content-center align-items-center" *ngIf="clientFournisseur.nom">
+                    <img [src]="clientFournisseur.photo ? 'http://localhost:8081' + clientFournisseur.photo : '/product.png'"  
+                    class="rounded-circle border shadow-sm" width="100" height="100" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 mb-3">
+        <div class="card-body">
+            <div class="alert alert-danger py-2" *ngIf="errorMsgs.length">
+                <div *ngFor="let error of errorMsgs" class="small">{{error}}</div>
+            </div>
+            <form>
+                <div class="row g-2 align-items-end">
+                    <div class="col-12 col-md-4 position-relative"> 
+                        <label class="form-label small fw-bold">Rechercher article</label>
+                        <input type="text" class="form-control" name="codeArt" placeholder="Code ou Désignation" [(ngModel)]="codeArticle" (input)="searchArticle()">
+                        
+                        <div *ngIf="listArticlesFiltered.length > 0" class="list-group position-absolute w-100 shadow-lg" style="z-index: 1050; max-height: 200px; overflow-y: auto;">
+                            <button *ngFor="let article of listArticlesFiltered" 
+                                    (click)="selectedArticle(article)" 
+                                    type="button"
+                                    class="list-group-item list-group-item-action small">
+                                <strong>{{article.codeArticle}}</strong> - {{article.designation}}
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 col-md-2">
+                        <label class="form-label small fw-bold">Quantité</label>
+                        <input type="number" class="form-control" name="qte" placeholder="0" [(ngModel)]="quantite">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label class="form-label small fw-bold">Prix Unitaire</label>
+                        <input type="text" class="form-control bg-light" name="prix" [value]="searchedArticle.prixUnitaireTtc ? searchedArticle.prixUnitaireTtc + ' DH' : ''" readonly>
+                    </div>
+                    <div class="col-12 col-md-3 d-grid">
+                        <button class="btn btn-success" type="button" (click)="ajoutLigneCommande()">
+                            <i class="fas fa-plus me-2"></i>Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 mb-3">
+        <div class="card-header bg-white fw-bold">Articles commandés</div>
+        <div class="card-body p-2" style="max-height:400px; overflow-y: auto;">
+            <div class="mb-2" *ngFor="let ligne of lignesCommande">
+                <app-detail-cmd [ligneCommande]="ligne"></app-detail-cmd>
+            </div>
+            <div *ngIf="lignesCommande.length === 0" class="text-center py-4 text-muted small">
+                Le panier est vide.
+            </div>
+        </div>
+        <div class="card-footer bg-light text-end py-3">
+            <h4 class="mb-0 text-success fw-bold">Total : {{ totalCommande | number:'1.2-2' }} DH</h4>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column flex-md-row justify-content-end gap-2 mt-4">
+        <button type="button" class="btn btn-outline-danger px-4" (click)="cancel()">Annuler</button>
+        <button type="button" class="btn btn-primary px-4 shadow" (click)="enregistrerCommande()">Enregistrer la commande</button>
+    </div>
+</div>

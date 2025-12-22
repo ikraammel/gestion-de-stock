@@ -1,0 +1,64 @@
+<div class="card mb-3 mt-2 custom-border">
+    <div class="card-body p-3">
+        <div class="row g-3 align-items-center">
+            <div class="col-12 col-md-2 d-flex justify-content-center border-md-end">
+                <img [src]="article.photo ? 'http://localhost:8081' + article.photo : 'product.png'" 
+                     class="img-fluid rounded"
+                     style="max-width: 100px;" 
+                     alt="Photo article">
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 border-md-end">
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fa-solid fa-qrcode me-2 text-primary"></i>
+                    <span class="fw-bold">{{article.codeArticle}}</span>
+                </div>
+                <div class="text-muted mb-2">
+                    <i class="fa-solid fa-tag me-2"></i>
+                    <span>{{article.designation}}</span>
+                </div>
+                <div class="small">
+                    <div class="mb-1"><i class="fa-solid fa-money-bill me-2"></i>HT: {{article.prixUnitaireHt}} DH</div>
+                    <div class="text-success fw-bold"><i class="fa-solid fa-cart-shopping me-2"></i>TTC: {{article.prixUnitaireTtc}} DH</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 border-md-end text-center text-md-start">
+                <span class="badge bg-info text-dark mb-1">Catégorie</span>
+                <div class="fw-bold">{{article.category?.code}}</div>
+                <div class="small text-muted">{{article.category?.designation}}</div>
+            </div>
+
+            <div class="col-12 col-md-4 d-flex flex-wrap justify-content-center justify-content-md-around gap-2">
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="modifierArticle()">
+                    <i class="fa-solid fa-pencil"></i> Modifier
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="ouvrirModalDelete(article)">
+                    <i class="fa-solid fa-trash"></i> Supprimer
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm">
+                    <i class="fa-solid fa-list"></i> Détails
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+<div class="modal-backdrop fade show" *ngIf="showDeleteModal"></div>
+<div class="modal d-block" *ngIf="showDeleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" (click)="fermerModal()"></button>
+      </div>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir supprimer cet article ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="fermerModal()">Annuler</button>
+        <button type="button" class="btn btn-danger" (click)="confirmerDelete()">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,18 @@
+.table-responsive {
+  border-radius: 0 0 8px 8px;
+}
+
+th {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.bg-primary-subtle {
+  background-color: rgba(13, 110, 253, 0.1); // Couleur bleue Bootstrap légère
+}
+
+@media (max-width: 991.98px) {
+  .col-lg-4 {
+    margin-bottom: 1.5rem;
+  }
+}

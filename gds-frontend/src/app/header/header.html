@@ -1,0 +1,42 @@
+<div class="container-fluid py-2 bg-white shadow-sm">
+  <div class="row align-items-center g-2">
+    
+    <div class="col-12 col-md-6 col-lg-8">
+      <div class="input-group">
+        <input type="text" class="form-control border-end-0 bg-light" placeholder="Rechercher..." aria-label="Recherche">
+        <span class="input-group-text bg-light border-start-0 text-muted">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+        
+        <div class="text-end me-3">
+          <span class="text-muted small d-block">Bienvenue,</span>
+          <span class="fw-bold text-dark d-block">{{connectedUser?.nom}} {{connectedUser?.prenom}}</span>
+          
+          <a href="javascript:void(0)" (click)="logout()" class="text-danger small text-decoration-none fw-bold">
+            <i class="fa-solid fa-power-off me-1"></i>Déconnexion
+          </a>
+        </div>
+
+        <div class="flex-shrink-0">
+          <a [routerLink]="['profil']" class="d-inline-block position-relative shadow-sm rounded-circle">
+            <img src="favicon.ico" 
+                 class="rounded-circle border border-2 border-primary" 
+                 width="45" 
+                 height="45" 
+                 alt="Profil"
+                 style="object-fit: cover;">
+            <span class="position-absolute bottom-0 end-0 p-1 bg-success border border-white rounded-circle shadow-sm" 
+                  title="En ligne"></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

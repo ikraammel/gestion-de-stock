@@ -1,0 +1,17 @@
+.list-group-item-action {
+  &:hover {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    cursor: pointer;
+  }
+}
+
+// Pour mobile : on enlève les bordures verticales sur petit écran
+@media (max-width: 767.98px) {
+  .border-md-end {
+    border-right: none !important;
+    border-bottom: 1px dashed #dee2e6;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}

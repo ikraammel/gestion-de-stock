@@ -1,0 +1,21 @@
+.hover-effect {
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  }
+}
+
+// Gestion des bordures responsives
+@media (min-width: 768px) {
+  .border-md-end {
+    border-right: 1px solid #dee2e6 !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .border-md-end {
+    border-bottom: 1px dashed #dee2e6;
+    margin-bottom: 0.5rem;
+  }
+}

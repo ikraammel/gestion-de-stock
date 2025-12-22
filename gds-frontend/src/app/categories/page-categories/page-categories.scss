@@ -1,0 +1,16 @@
+.hover-effect {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  }
+}
+
+// Pour cacher les bordures sur mobile
+@media (max-width: 767.98px) {
+  .border-md-end {
+    border-right: none !important;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.5rem;
+  }
+}

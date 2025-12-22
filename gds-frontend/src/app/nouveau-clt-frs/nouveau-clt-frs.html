@@ -1,0 +1,93 @@
+<div class="container-fluid py-4 px-2 px-md-4">
+    <div class="row mb-4">
+        <div class="col-12 d-flex flex-column align-items-center">
+            <button (click)="fileInput.click()" class="btn p-0 border-0 bg-transparent position-relative">
+               <img [src]="imgUrl" class="rounded-circle border shadow-sm" width="150" height="150" style="object-fit: cover;"> 
+               <div class="position-absolute bottom-0 end-0 bg-primary text-white rounded-circle p-2 shadow">
+                   <i class="fa-solid fa-camera"></i>
+               </div>
+               <input hidden type="file" #fileInput (change)="onFileInput(fileInput.files)">
+            </button>
+            <p class="text-muted small mt-2">Cliquer pour changer la photo du {{origin}}</p>
+        </div>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h4 class="h5 text-primary"><i class="fa-solid fa-circle-info me-2"></i>Informations du {{origin}}</h4>
+        </div>
+
+        <div class="col-12" *ngIf="errorMsgs.length > 0">
+            <div class="alert alert-danger shadow-sm">
+                <div *ngFor="let errorMsg of errorMsgs"><i class="fa-solid fa-triangle-exclamation me-2"></i>{{errorMsg}}</div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <form>
+                <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small fw-bold">Nom</label>
+                        <input type="text" class="form-control" placeholder="Nom" name="nom" [(ngModel)]="clientFrs.nom">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small fw-bold">Prénom</label>
+                        <input type="text" class="form-control" placeholder="Prénom" name="prenom" [(ngModel)]="clientFrs.prenom">
+                    </div>
+                </div> 
+
+                <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small fw-bold">E-Mail</label>
+                        <input type="email" class="form-control" placeholder="exemple@mail.com" name="email" [(ngModel)]="clientFrs.email">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small fw-bold">Numéro de Téléphone</label>
+                        <input type="tel" class="form-control" placeholder="06..." name="Telephone" [(ngModel)]="clientFrs.numTel">
+                    </div>
+                </div>
+
+                <h4 class="h5 text-primary mt-4 mb-3"><i class="fa-solid fa-location-dot me-2"></i>Adresse</h4>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small fw-bold">Adresse 1</label>
+                        <input type="text" class="form-control" placeholder="Rue, N° porte..." name="adresse1" [(ngModel)]="adresseDto.adresse1">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small fw-bold">Adresse 2 (Optionnel)</label>
+                        <input type="text" class="form-control" placeholder="Appartement, étage..." name="adresse2" [(ngModel)]="adresseDto.adresse2">
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-12 col-sm-4">
+                        <label class="form-label small fw-bold">Ville</label>
+                        <input type="text" class="form-control" placeholder="Ville" name="ville" [(ngModel)]="adresseDto.ville">
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <label class="form-label small fw-bold">Code Postal</label>
+                        <input type="text" class="form-control" placeholder="CP" name="codePostal" [(ngModel)]="adresseDto.codePostale">
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <label class="form-label small fw-bold">Pays</label>
+                        <input type="text" class="form-control" placeholder="Pays" name="pays" [(ngModel)]="adresseDto.pays">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 d-flex flex-column flex-md-row justify-content-end gap-2">
+            <button type="button" class="btn btn-outline-danger px-4 py-2 order-2 order-md-1" (click)="cancelClick()">
+                <i class="fa-solid fa-ban me-2"></i>Annuler
+            </button>
+            <button type="button" class="btn btn-primary px-4 py-2 shadow order-1 order-md-2" (click)="enregistrer()">
+                <i class="fa-regular fa-floppy-disk me-2"></i>Enregistrer le {{origin}}
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="card mb-3 mt-2 custom-border">
+    <div class="card-body p-2">
+        <div class="row">
+            <!-- Image -->
+            <div class="col-md-2 border-end d-flex align-items-start text-center">
+                <img src="/product.png" width="100px" alt="">
+            </div>
+
+            <!-- Informations -->
+            <div class="col-md-3 border-end d-flex flex-column justify-content-start">
+                <div class="d-flex align-items-center mb-1">
+                    <i class="fa-solid fa-circle-info me-2"></i>
+                    <span>Code Article</span>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <i class="fa-solid fa-circle-info me-2"></i>
+                    <span>Désignation</span>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <i class="fa-solid fa-dollar-sign me-2"></i>
+                    <span>Prix HT</span>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <i class="fa-solid fa-dollar-sign me-2"></i>
+                    <span>Prix TTC</span>
+                </div>
+            </div>
+
+            <!-- Catégorie -->
+            <div class="col-md-3 border-end d-flex flex-column justify-content-center">
+                <div class="d-flex align-items-center mb-1">
+                    <i class="fa-brands fa-dropbox"></i>
+                    <div>
+                        <div>
+                            <h3>Stock actuel</h3>
+                        </div>
+                        <div>
+                            <h3>139</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boutons -->
+            <div class="col-md-2 d-flex justify-content-around align-items-center">
+                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fa-brands fa-stack-overflow"></i> Correction de stock
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Correction de stock</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="recipient-name" placeholder="Quantité">
+          </div>
+          <div class="mb-3">
+            <select class="form-control" id="message-text">
+                <option>CORRECTION POSITIVE</option>
+                <option>CORRECTION NEGATIVE</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-ban"></i>Annuler</button>
+        <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>Enregistrer</button>
+      </div>
+
+    </div>
+  </div>
+</div>

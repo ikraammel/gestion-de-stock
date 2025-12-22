@@ -1,0 +1,68 @@
+<div class="container-fluid px-2 px-md-4">
+    <div class="row align-items-center my-3 g-3">
+        <div class="col-12 col-md-6 text-center text-md-start">
+            <h1 class="h3 mb-0">Commandes {{origin}}</h1>
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+            <app-boutton-action
+                (clickEvent)="nouvelleCommande()"
+                [isImporterVisible]="false">
+            </app-boutton-action>
+        </div>
+    </div>
+
+    <div class="accordion shadow-sm" id="accordionOrders">
+        <div class="card border-0 mb-2 overflow-hidden" *ngFor="let cmd of listCommandes; let i = index" style="border-radius: 8px;">
+            <div class="card-header p-0 bg-white border-bottom-0" [id]="'heading' + i">
+                <button class="btn btn-link w-100 p-0 text-decoration-none" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        [attr.data-bs-target]="'#collapse' + i"
+                        aria-expanded="false">
+                    <app-detail-cmd-clt-frs
+                        [commande]="cmd"
+                        [origin]="origin">
+                    </app-detail-cmd-clt-frs>
+                </button>
+            </div>
+
+            <div [id]="'collapse' + i" class="collapse" data-bs-parent="#accordionOrders">
+                <div class="card-body bg-light px-2 px-md-4 py-3" style="max-height: 400px; overflow-y: auto;">
+                    <div *ngFor="let ligne of (cmd.ligneCommandeClient || cmd.ligneCommandeFournisseurs)" class="mb-2">
+                        <app-detail-cmd [ligneCommande]="ligne"></app-detail-cmd>
+                    </div>
+                    <div *ngIf="!(cmd.ligneCommandeClient?.length || cmd.ligneCommandeFournisseurs?.length)" class="text-center py-3">
+                        <small class="text-muted italic">Aucun article enregistré pour cette commande.</small>
+                    </div>
+                </div>
+
+                <div class="card-footer bg-white py-3 border-top">
+                    <div class="row g-2 align-items-center">
+                        <div class="col-12 col-md-6 text-start">
+                            <span class="text-muted small d-block">Référence : {{cmd.code}}</span>
+                            <span class="text-muted small">Date : {{cmd.dateCommande | date:'dd/MM/yyyy HH:mm'}}</span>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="d-flex justify-content-between justify-content-md-end gap-md-4">
+                                <div class="text-md-end">
+                                    <span class="d-block small text-muted">Articles</span>
+                                    <span class="fw-bold text-primary">{{ calculerNombreArticles(cmd) }}</span>
+                                </div>
+                                <div class="text-end">
+                                    <span class="d-block small text-muted">Montant Total</span>
+                                    <span class="fw-bold text-success">{{ calculerTotalCommande(cmd) | number:'1.2-2' }} DH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4 justify-content-center">
+        <div class="col-auto">
+            <app-pagination></app-pagination>
+        </div>
+    </div>
+</div>

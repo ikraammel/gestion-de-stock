@@ -1,0 +1,83 @@
+<div class="col">
+    <div class="row m-3">
+        <div class="col-md-4 p-0 ">
+            <h1>Mouvements des stocks</h1>
+        </div>
+        <div class="col-md-4 text-end me-1">
+            <app-boutton-action
+                [isImporterVisible] = "false"
+                [isNouveauVisible] = "false"
+            >
+            </app-boutton-action>
+        </div>
+    </div>
+    <div class="card m-3 me-0">
+        <div class="accordion" id="accordionExample">
+    <div class="card mb-2">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#collapseOne"
+                        aria-expanded="true" 
+                        aria-controls="collapseOne">
+                    <app-detail-mvmt-stock-article></app-detail-mvmt-stock-article>
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" 
+             class="collapse show" 
+             aria-labelledby="headingOne" 
+             data-bs-parent="#accordionExample"
+              style="max-height: 300px; overflow-y: scroll;">
+            <div class="card-body">
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock> 
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock> 
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#collapseTwo"
+                        aria-expanded="true" 
+                        aria-controls="collapseTwo">
+                    <app-detail-mvmt-stock-article></app-detail-mvmt-stock-article>
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseTwo" 
+             class="collapse show" 
+             aria-labelledby="headingOne" 
+             data-bs-parent="#accordionExample"
+              style="max-height: 300px; overflow-y: scroll;">
+            <div class="card-body">
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock> 
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock>
+                <app-detail-mvmt-stock></app-detail-mvmt-stock> 
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="row mb-3 text-center">
+        <app-pagination></app-pagination>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+// Assure que les cartes dans la liste ne se touchent pas sur mobile
+app-detail-clt-frs {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+// Header : Alignement de l'image de profil
+.rounded-circle {
+  object-fit: cover;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// Responsive : Ajustement de la taille de police pour les titres h1 sur mobile
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+}

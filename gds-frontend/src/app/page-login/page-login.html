@@ -1,0 +1,53 @@
+<div class="auth-wrapper d-flex align-items-center justify-content-center bg-primary min-vh-100">
+  <div class="container">
+    <div class="row justify-content-center px-3">
+      <div class="col-12 col-sm-10 col-md-7 col-lg-5 col-xl-4">
+        
+        <div class="card border-0 shadow-2xl rounded-4">
+          <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-4">
+              <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                <i class="fa-solid fa-lock fs-2"></i>
+              </div>
+              <h3 class="fw-bold">Connexion</h3>
+              <p class="text-muted small">Accédez à votre inventaire</p>
+            </div>
+
+            <div class="alert alert-danger border-0 small py-2" *ngIf="errorMessage">
+              <i class="fa-solid fa-circle-exclamation me-2"></i>{{errorMessage}}
+            </div>
+
+            <form>
+              <div class="mb-3">
+                <label class="form-label small fw-bold">Email</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-0"><i class="fa-solid fa-envelope"></i></span>
+                  <input type="email" class="form-control bg-light border-0" placeholder="nom@entreprise.com" [(ngModel)]="authRequest.email" name="email">
+                </div>
+              </div>
+              <div class="mb-4">
+                <label class="form-label small fw-bold">Mot de passe</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-0"><i class="fa-solid fa-key"></i></span>
+                  <input type="password" class="form-control bg-light border-0" placeholder="••••••••" [(ngModel)]="authRequest.password" name="password">
+                </div>
+              </div>
+              
+              <div class="d-grid mb-3">
+                <button type="button" class="btn btn-primary btn-lg fw-bold shadow-sm" (click)="login()">
+                  Se Connecter
+                </button>
+              </div>
+
+              <div class="text-center">
+                <p class="small text-muted mb-0">Nouveau sur la plateforme ?</p>
+                <a [routerLink]="['/register']" class="btn btn-link btn-sm fw-bold">Créer une entreprise</a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

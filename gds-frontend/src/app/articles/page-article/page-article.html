@@ -1,0 +1,38 @@
+<div class="container-fluid px-2 px-md-4">
+  <div class="row align-items-center my-3 g-3">
+    <div class="col-12 col-md-6 text-center text-md-start">
+      <h1 class="h3 mb-0">Liste des articles</h1>
+    </div>
+    
+    <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+      <app-boutton-action
+        (clickEvent)="nouvelArticle()"
+        class="w-100 w-md-auto">   
+      </app-boutton-action>
+    </div>
+
+    <div class="col-12" *ngIf="errorMsgs">
+      <div class="alert alert-danger mb-0">
+        {{errorMsgs}}
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-0">
+    <div class="col-12 px-0">
+      <div class="card shadow-sm border-0">
+        <app-detail-article 
+          *ngFor="let article of listArticles" 
+          [article]="article" 
+          (suppressionResult)="handleSuppression($event)">
+        </app-detail-article>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-4 justify-content-center">
+    <div class="col-auto">
+      <app-pagination></app-pagination>
+    </div>
+  </div>
+</div>

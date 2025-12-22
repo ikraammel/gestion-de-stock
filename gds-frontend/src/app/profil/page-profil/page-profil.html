@@ -1,0 +1,77 @@
+<div class="container-fluid px-2 px-md-4 py-4">
+  <div class="row g-4">
+    
+    <div class="col-12 col-lg-4">
+      <div class="card shadow-sm border-0 h-100 text-center">
+        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+          <div class="mb-4 mt-2 position-relative">
+            <img src="product.png" 
+                 class="rounded-circle border border-4 border-white shadow-sm" 
+                 style="width: 150px; height: 150px; object-fit: cover;"
+                 alt="Profil">
+            <button class="btn btn-sm btn-primary position-absolute bottom-0 end-0 rounded-circle p-2 shadow">
+              <i class="fa-solid fa-camera"></i>
+            </button>
+          </div>
+
+          <div class="mb-4">
+            <h2 class="h4 fw-bold mb-1">Nom Prenom</h2>
+            <p class="text-muted small">
+              <i class="fa-solid fa-location-dot me-1"></i>Adresse, ville, 12345
+            </p>
+          </div>
+
+          <div class="d-grid gap-2 w-100">
+            <button type="button" class="btn btn-primary shadow-sm">
+              <i class="fa-solid fa-user-pen me-2"></i>Modifier le profil
+            </button>
+            <button type="button" class="btn btn-outline-warning" [routerLink]="['/changer-mot-de-passe']">
+              <i class="fa-solid fa-lock me-2"></i>Changer le mot de passe
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-8">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-header bg-white py-3">
+          <h5 class="mb-0 fw-bold text-primary">Détails du compte</h5>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0 align-middle">
+              <tbody>
+                <tr>
+                  <th scope="row" class="ps-4 py-3 bg-light text-muted small text-uppercase" style="width: 30%;">Nom Complet</th>
+                  <td class="ps-4">Nom Prenom</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="ps-4 py-3 bg-light text-muted small text-uppercase">Email</th>
+                  <td class="ps-4">email@mail.com</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="ps-4 py-3 bg-light text-muted small text-uppercase">Téléphone</th>
+                  <td class="ps-4">0011 22 33 44 55</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="ps-4 py-3 bg-light text-muted small text-uppercase">Adresse</th>
+                  <td class="ps-4">Adresse, Ville, 12345, Pays</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="ps-4 py-3 bg-light text-muted small text-uppercase border-bottom-0">Entreprise</th>
+                  <td class="ps-4 border-bottom-0">
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2">
+                      Nom entreprise
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

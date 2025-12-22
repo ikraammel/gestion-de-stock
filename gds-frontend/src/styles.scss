@@ -1,0 +1,117 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #eff2f5 !important;
+}
+
+.background-grey{
+    background-color: #eff2f5 !important;
+}
+
+.border-none{
+    border: none;
+}
+
+.min-height-80{
+    min-height: 80px;
+}
+
+.min-height-200{
+    min-height: 200px;
+}
+
+.border-right{
+    border-right: 1px solid #eff2f5;
+}
+
+.custom-border {
+    border: 1px solid #0c0b0b; 
+    border-radius: 5px;
+    padding: 15px;
+    overflow: hidden; /* empêche le contenu interne de dépasser les coins arrondis */
+    background-color: #fff; 
+}
+.custom-border-end {
+    border-right: 2px solid #0c0b0b; /* couleur rouge et épaisseur 2px */
+}
+
+.blue-color {
+  color: #037bfe;
+}
+
+.hidden {
+  display: none;
+}
+
+.loader-overlay {
+  position: absolute;
+  width: 100%;
+  z-index: 500000;
+  top: 0;
+}
+
+.loader {
+  height: 10px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #FFF;
+}
+
+.loader:before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: -200px;
+  width: 200px;
+  height: 10px;
+  background-color: #007bff;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  from {
+    left: -200px;
+    width: 30%;
+  }
+  50% {
+    width: 30%;
+  }
+  70% {
+    width: 70%;
+  }
+  80% {
+    left: 50%;
+  }
+  95% {
+    left: 120%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+#posts {
+  margin: 20px 0;
+  list-style-type: none;
+}
+
+#about {
+  margin: 20px;
+}
+
+.alerts {
+  margin: 20px 0;
+  color: red;
+}
+.background-grey { background-color: #f8f9fa; }
+.min-vh-75 { min-height: 75vh; }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+.rounded-4 { border-radius: 1rem; }
+
+// Masquer la sidebar sur mobile avec un bouton peut être ajouté plus tard
+@media (max-width: 767.98px) {
+  nav.col-12 {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}

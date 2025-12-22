@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-end gap-2">
+  <ng-container *ngIf="isImporterVisible">
+    <button type="button" class="btn btn-warning text-nowrap">
+      <i class="fa-solid fa-cloud-arrow-up"></i>&nbsp;Importer
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="isExporterVisible">
+    <button type="button" class="btn btn-success text-nowrap">
+      <i class="fa-solid fa-cloud-arrow-down"></i>&nbsp;Exporter
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="isNouveauVisible">
+    <button type="button" class="btn btn-primary text-nowrap" (click)="boutonNouveauClick()">
+      <i class="fa-solid fa-plus"></i>&nbsp;Nouveau
+    </button>
+  </ng-container>
+</div>
