@@ -90,7 +90,3 @@ The Angular development server normally runs at `http://localhost:4200`. Configu
 ## API Integration
 
 The frontend includes generated TypeScript Angular API clients in `gds-frontend/src/gs-api/` and npm scripts for downloading the backend OpenAPI specification and regenerating the client.
-
-## Reference
-
-Project concepts were informed by the [Spring Boot & Angular stock-management tutorial series](https://www.youtube.com/watch?v=d5jCDvBYZUI&list=PL41m5U3u3wwlI59Jt6K2cyG2oKFbFJFQU). The features documented above are based on this repository's source code.
